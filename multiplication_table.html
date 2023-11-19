@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Tapestry&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #F5EBEB;
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #8670708b;
+            color: rgb(45, 2, 3);
+            font-family: 'Yatra One', cursive;
+            text-align: center;
+            font-size: 35px;
+            padding: 15px 0 10px 0;
+        }
+        .operation, .results {
+            padding-left: 10px;
+        }
+        span, input, button, footer, .results {
+            font-family: 'Fondamento', cursive;
+            font-size: 20px;
+        }
+        button {
+            background-color: #8670708b;
+        }
+        p {
+            border: 0;
+            margin: 0px;
+            padding: 10px;
+            margin-left: 3px;
+            font-size: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        .vl {
+            border-left: 2px solid black;
+            margin-left: 20px;
+            padding-bottom: 0;
+        }
+        .item {
+            width: 50vw;
+        }
+        footer {
+            color: rgb(45, 2, 3);
+            align-items: last baseline;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        @keyframes emojis {
+            0% { content: '😀' }
+            250% { content: '😁' }
+            20% { content: '😂'; }
+            30% { content: '😄'; }
+            40% { content: '😅'; }
+            50% { content: '😇'; }
+            60% { content: '😎'; }
+            70% { content: '😮'; }
+            80% { content: '😵'; }
+            90% { content: '🤔'; }
+            100% { content: '🤩'; }
+        }
+
+        .emo::before {
+            content: "!";
+            animation-name: emojis;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        .emo {
+            font-size: 85px
+        }
+
+        footer div {
+            background-color: #8670708b;
+            margin-right: 30px;
+        }
+
+        .card {
+            width: 500px;
+            margin: 0 70px 0 70px;
+            border: 2px solid rgb(51, 8, 8);
+            border-radius: 4px;
+            text-align: center;
+            background-color: rgba(236, 222, 222, 0.459)
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="header">Multiplication Table!</div>
+    <br />
+
+    <div class="container">
+
+        <div class="operation item item1">
+            <span id="text">Enter a number to generate a MULTIPLICATION TABLE</span><br /><br />
+            <input id="multiplicand" type="number" /><br /><br /><br />
+            <span id="text">Enter a number to which you want to generate</span><br /><br />
+            <input id="multiplier" type="number" /><br /><br /><br />
+    
+            <button>GENERATE</button>
+        </div>
+        <br /><br />
+    
+        <div class="results item item2"></div>
+        
+
+        <footer class="item">
+            <div>Try, Play and Learn with this..<br />
+                <span class="emo"></span>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                let multiplicand = $('#multiplicand').val();
+                //console.log(multiplicand);
+
+                let multiplier = $('#multiplier').val();
+                //console.log(multiplier);
+
+                
+                    for(let i=1; i<=multiplier; i++) {
+                        //console.log(i+'x'+multiplicand+'='+i*multiplicand);
+                        //'<p>'+i+' x '+multiplicand+' = '+i*multiplicand+'</p><br />'
+                        $('.results').addClass('card').append('<p>'+i+' x '+multiplicand+' = '+i*multiplicand+'</p>\n');
+                    }
+
+                //$('p').addClass('vl');
+            })
+        })
+    </script>
+</body>
+</html>
